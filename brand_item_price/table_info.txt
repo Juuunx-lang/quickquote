@@ -1,0 +1,38 @@
+##brand.sql##
+字段-类型-注释
+id-bigint(20)-主键
+brand_code-varchar(50)-品牌编码（如 BR001），全局唯一
+brand_name-varchar(200)-品牌名称（如"某某电气"、"A-BF"）
+status-varchar(20)-状态：ENABLED 启用 / DISABLED 停用
+created_at-datetime-创建时间
+##brand_item.sql##
+字段-类型-注释
+id-bigint(20)-主键
+brand_id-bigint(20)-所属品牌 ID（关联 brand.id）
+item_code-varchar(100)-商品编号 / 订货编号
+item_name-varchar(255)-商品名称（如：充电式起子机）
+series-varchar(100)-所属系列
+item_type-varchar(100)-商品类型
+model-varchar(200)-本厂/对外型号（销售和仓库使用的最终型号）
+factory_model-varchar(200)-源厂型号（供应商原始内部型号，用于对账进货）
+source_brand_code-varchar(50)-来源品牌编码 / 贴牌方品牌编码（商品级）
+spec-varchar(300)-基础规格简写（如 5N.M, 4V）
+key_features-varchar(255)-关键配置特征（如"2.0ah(内置)"、"裸机"）
+properties-json-扩展技术参数（JSON格式，兼容各厂家不固定参数，如电压/重量/转速/精度等）
+packing_qty-int(11)-装箱量（台/箱），B2B批发重要字段
+min_order_qty-int(11)-最小起订量
+accessories-varchar(255)-随箱标配物理附件（如：批头套装）
+unit-varchar(50)-单位（个、台、箱）
+attachment-json-系统电子资料附件（图片/说明书等文件路径或URL）
+##brand_current_price.sql##
+字段-类型-注释
+id-bigint(20)-主键
+brand_item_id-bigint(20)-关联商品 ID（对应 brand_item.id），唯一
+supply_price-decimal(18,4)-最新供货价 / 进货价
+retail_price-decimal(18,4)-最新零售价 / 面价（采购不关注）
+discount_price-decimal(18,4)-最新活动价 / 折后价（采购不关注）
+currency-varchar(10)-币种（CNY / USD 等）
+sales_status-varchar(30)-当前销售状态：ON_SALE 在售 / DISCONTINUED 停产
+remark-varchar(500)-当前有效的价格备注
+ext_json-json-兜底扩展：价格相关的商业附加条款（起订量/运费政策/保价期/汇率说明等）
+updated_at-datetime-最新价格更新时间
