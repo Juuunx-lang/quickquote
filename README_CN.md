@@ -163,7 +163,3 @@ python -m compileall app
 ## 运行配置
 
 建议以 .env.docker.example 为起点创建本地 .env。数据库、LLM、ERP 和 SQLite 报价库等运行配置应放在本地环境变量或部署平台的 secret manager 中。
-
-## License
-
-公开发布前请补充 License。
