@@ -152,16 +152,14 @@ python -m compileall app
 
 ## Documentation
 
-- `docs/项目全景手册.md`
-- `docs/开发细节备忘.md`
-- `docs/部署与环境备忘.md`
-- `docs/排障与回归用例.md`
-- `DOCKER_DEPLOY.md`
+- `README.md`
+- `README_CN.md`
+- `docs/architecture.md` / `docs/architecture_CN.md`
+- `docs/development.md` / `docs/development_CN.md`
+- `docs/deployment.md` / `docs/deployment_CN.md`
+- `docs/troubleshooting.md` / `docs/troubleshooting_CN.md`
+- `DOCKER_DEPLOY.md` / `DOCKER_DEPLOY_CN.md`
 
 ## Runtime Configuration
 
 Use .env.docker.example as the starting point for local configuration. Keep runtime values in .env or in your deployment secret manager, and create your own SQLite quotation database from the schema files when needed.
-
-## License
-
-Add a license before publishing the repository publicly.
